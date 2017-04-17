@@ -35,7 +35,7 @@ let HappyPack = require('happypack'),
 module.exports = {
   // devtool: 'source-map',
   entry: [
-    "babel-polyfill",
+    // "babel-polyfill",
     './src/index.js',
   ],
   output: {
