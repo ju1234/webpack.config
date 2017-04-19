@@ -151,3 +151,5 @@ module.exports = {
 
 
 console.log('webpack start'.info);
+
+console.log('asdaas');
