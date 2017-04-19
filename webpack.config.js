@@ -117,9 +117,8 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
       filename: 'common.[hash:8].js',
-      minChunks: function (module, count) {
-        return module.resource && module.resource.indexOf(path.resolve(__dirname, 'src')) === -1;
-      }
+      minChunks: 100,
+      async: false
     }),
     new ExtractTextPlugin('/dist/[name].css'),
     new webpack.LoaderOptionsPlugin({
