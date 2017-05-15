@@ -94,7 +94,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png)|(jpg)|svg|jpeg|gif$/,
+        test: /\.(png)|(jpg)|svg|jpeg|eot|woff|ttf|gif$/,
         use: {
           loader: 'url-loader',
           query: {
@@ -117,8 +117,9 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
       filename: 'common.[hash:8].js',
-      minChunks: 100,
-      async: false
+      minChunks: function (module, count) {
+        return module.resource && module.resource.indexOf(path.resolve(__dirname, 'src')) === -1;
+      }
     }),
     new ExtractTextPlugin('/dist/[name].css'),
     new webpack.LoaderOptionsPlugin({
@@ -151,5 +152,3 @@ module.exports = {
 
 
 console.log('webpack start'.info);
-
-console.log('asdaas');
