@@ -32,7 +32,8 @@
     "postcss": "^5.2.16",
     "postcss-loader": "^1.3.3",
     "precss": "^1.4.0",
-    "prepack-webpack-plugin": "^1.1.0"
+    "prepack-webpack-plugin": "^1.1.0",
+    "react-dev-utils": "^0.5.2"
 }
 ```
 
