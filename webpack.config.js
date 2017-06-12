@@ -2,13 +2,12 @@
  * Created by Yeapoo on 2017/03/20.
  */
 let path = require('path');
-let paths = require('../paths'),
-  webpack = require('webpack'),
-  HtmlWebpackPlugin = require('html-webpack-plugin'),
-  ExtractTextPlugin = require('extract-text-webpack-plugin'),
-  precss = require('precss'),
-  autoprefixer = require('autoprefixer'),
-  colors = require('colors');
+let webpack = require('webpack'),
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin'),
+    precss = require('precss'),
+    autoprefixer = require('autoprefixer'),
+    colors = require('colors');
 
 colors.setTheme({
   silly: 'rainbow',
@@ -26,10 +25,9 @@ colors.setTheme({
 let node_modules = path.resolve(__dirname, 'node_modules');
 let pathToReact = path.resolve(node_modules, 'react/react');
 let pathToReactDOM = path.resolve(node_modules, 'react-dom/index');
-let theme = require('../theme.light.js');
 let HappyPack = require('happypack'),
-  os = require('os'),
-  happyThreadPool = HappyPack.ThreadPool({size: os.cpus().length});
+    os = require('os'),
+    happyThreadPool = HappyPack.ThreadPool({size: os.cpus().length});
 
 
 module.exports = {
@@ -39,7 +37,7 @@ module.exports = {
     './src/index.js',
   ],
   output: {
-    path: paths.distPath,
+    path: path.resolve('../public/dist'),
     filename: 'bundle.[hash:8].js',
     publicPath: '/dist/',
     chunkFilename: '[name].[chunkhash:8].chunk.js'
@@ -67,19 +65,15 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-         {
-             loader: 'style-loader'
-            }, {
-              loader: 'css-loader'
-            }, {
-              loader: 'postcss-loader'
-            }, {
-                loader: 'less-loader',
-                options:{
-                    modifyVars:theme
-                }
-
-        }]
+          {
+            loader: 'style-loader'
+          }, {
+            loader: 'css-loader'
+          }, {
+            loader: 'postcss-loader'
+          }, {
+            loader: 'less-loader',
+          }]
       },
       {
         test: /\.scss$/,
@@ -142,7 +136,7 @@ module.exports = {
             ['import', {
               libraryName: 'antd',
               style: "css"
-          }]
+            }]
           ],
         },
       }]
