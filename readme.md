@@ -66,3 +66,12 @@
 * production
 
 find file in /public/dist
+
+
+## pacjage.json
+```
+"scripts": {
+    "start": "export NODE_ENV=development&& node server.js",
+    "build": "export NODE_ENV=production&& webpack --config ./webpack.config/webpack.config.prod.js",
+  }
+```
