@@ -35,3 +35,34 @@
     "prepack-webpack-plugin": "^1.1.0"
 }
 ```
+
+## how to use
+* development
+  * express
+```
+  var config = require('webpack.config.dev'),
+      webpack = require('webpack');
+  var compiler = webpack(config);
+  devMiddleWare = require('webpack-dev-middleware')(compiler, {
+    publicPath: '/dist',
+    stats: {
+      colors: true,
+      modules: false,
+      children: false,
+      chunks: false,
+      chunkModules: false
+    }
+  });
+  app.use(devMiddleWare);
+  app.use(require('webpack-hot-middleware')(compiler));
+  var mfs = devMiddleWare.fileSystem;
+  var file = path.join(config.output.path, 'index.html');
+  devMiddleWare.waitUntilValid(function () {
+    var html = mfs.readFileSync(file);
+    res.end(html)
+  });
+
+```
+* production
+
+find file in /public/dist
