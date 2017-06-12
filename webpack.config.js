@@ -100,7 +100,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, '../src', 'index.tpl'),
+      template: path.join(__dirname, '../src', './template/index.tpl'),
       minify: {
         collapseWhitespace: true,
         collapseInlineTagWhitespace: true,
