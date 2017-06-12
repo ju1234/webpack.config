@@ -1,5 +1,7 @@
 /**
- * Created by Yeapoo on 2017/03/20.
+ * 文件说明： 添加开发模式配置
+ *
+ * Created by jufei on 2017/03/20.
  */
 
 var baseConfig = require('./webpack.config'),

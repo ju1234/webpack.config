@@ -1,3 +1,8 @@
+/**
+ * 文件说明： webpack 生产环境配置
+ * Created by jufei on 2017/03/20.
+ */
+
 var baseConfig = require('./webpack.config'),
     webpack = require('webpack'),
     path = require('path'),

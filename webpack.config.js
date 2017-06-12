@@ -1,5 +1,6 @@
 /**
- * Created by Yeapoo on 2017/03/20.
+ * 文件说明： webpack 基础配置
+ * Created by jufei on 2017/03/20.
  */
 let path = require('path');
 let webpack = require('webpack'),
@@ -9,6 +10,7 @@ let webpack = require('webpack'),
     autoprefixer = require('autoprefixer'),
     colors = require('colors');
 
+// 彩色命令行工具
 colors.setTheme({
   silly: 'rainbow',
   input: 'grey',
@@ -99,6 +101,7 @@ module.exports = {
     ]
   },
   plugins: [
+      // html 插件
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../src', './template/index.tpl'),
       minify: {
