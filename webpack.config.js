@@ -44,7 +44,8 @@ module.exports = {
     chunkFilename: '[name].[chunkhash:8].chunk.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    modules: [path.resolve(__dirname,'../', 'node_modules')]
   },
   module: {
     noParse: [pathToReact, pathToReactDOM],
@@ -71,6 +72,7 @@ module.exports = {
           }, {
             loader: 'css-loader'
           }, {
+
             loader: 'postcss-loader'
           }, {
             loader: 'less-loader',
