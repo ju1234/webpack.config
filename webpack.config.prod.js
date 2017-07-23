@@ -3,7 +3,7 @@
  * Created by jufei on 2017/03/20.
  */
 
-var baseConfig = require('./webpack.config'),
+let baseConfig = require('./webpack.config'),
     webpack = require('webpack'),
     path = require('path'),
     colors = require('colors');
@@ -21,8 +21,9 @@ colors.setTheme({
   error: 'red'
 });
 
-var productionConfig = baseConfig;
+let productionConfig = baseConfig;
 
+productionConfig.output.publicPath =  '/dist/';
 
 productionConfig.plugins.push(
     new webpack.DefinePlugin({

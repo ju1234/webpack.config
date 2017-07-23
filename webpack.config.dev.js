@@ -4,7 +4,7 @@
  * Created by jufei on 2017/03/20.
  */
 
-var baseConfig = require('./webpack.config'),
+let baseConfig = require('./webpack.config'),
     path = require('path'),
     webpack = require('webpack'),
     CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin'),
@@ -12,12 +12,13 @@ var baseConfig = require('./webpack.config'),
     hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
 
 
-var developingConfig = baseConfig;
+let developingConfig = baseConfig;
 
 
-developingConfig.entry.unshift(hotMiddlewareScript)
+developingConfig.entry.unshift(hotMiddlewareScript);
+developingConfig.output.publicPath =  '/dist/';
 
-developingConfig.devtool = 'source-map';
+    developingConfig.devtool = 'source-map';
 developingConfig.plugins.push(
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
