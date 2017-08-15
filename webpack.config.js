@@ -36,7 +36,7 @@ module.exports = {
   // devtool: 'source-map',
   entry: [
     // "babel-polyfill",
-    './src/index.js',
+    './src/pageUrls.js',
   ],
   output: {
     path: path.resolve('../public/dist'),
@@ -45,7 +45,11 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    modules: [path.resolve(__dirname,'../', 'node_modules')]
+    modules: [path.resolve(__dirname,'../', 'node_modules')],
+    alias: {
+      src: path.resolve(__dirname, '../src'),
+      root: path.resolve(__dirname, '../')
+    }
   },
   module: {
     noParse: [pathToReact, pathToReactDOM],
